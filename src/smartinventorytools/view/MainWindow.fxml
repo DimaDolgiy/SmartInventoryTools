@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartinventorytools.EmployeeController">
+   <children>
+      <VBox layoutX="107.0" layoutY="136.0" prefHeight="900.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar prefHeight="40.0" prefWidth="1638.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Delete" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane prefHeight="913.0" prefWidth="1900.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Сотрудники">
+                  <content>
+                    <AnchorPane>
+                           <children>
+                              <Button layoutX="210.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Поиск" />
+                              <Button layoutX="404.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnAddEmployee" prefHeight="25.0" prefWidth="86.0" text="Добавить " />
+                              <Button layoutX="498.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="25.0" prefWidth="86.0" text="Удалить" />
+                              <TextField layoutX="13.0" layoutY="28.0" prefHeight="25.0" prefWidth="185.0" />
+                              <Button layoutX="592.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnEditEmp" prefHeight="25.0" prefWidth="109.0" text="Редактировать" />
+                              <Button layoutX="326.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnRefreshTable" prefHeight="25.0" prefWidth="71.0" text="Обновить" />
+                              <TableView fx:id="tableEmployee" layoutX="341.0" layoutY="83.0" maxWidth="-Infinity" prefHeight="601.0" prefWidth="951.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="83.0">
+                                <columns>
+                                  <TableColumn fx:id="employeeIdColumn" prefWidth="119.0" text="employee_id" />
+                                  <TableColumn fx:id="firstNameColumn" minWidth="6.0" prefWidth="124.0" text="first name" />
+                                    <TableColumn fx:id="secondNameColumn" minWidth="6.0" prefWidth="128.0" text="second name" />
+                                    <TableColumn fx:id="lastNameColumn" minWidth="6.0" prefWidth="135.0" text="last name" />
+                                    <TableColumn fx:id="jobPositionColumn" minWidth="6.0" prefWidth="140.0" text="job position" />
+                                    <TableColumn fx:id="startDateColumn" minWidth="6.0" prefWidth="165.0" text="start date" />
+                                    <TableColumn fx:id="firedDateColumn" minWidth="6.0" prefWidth="138.0" text="fired date" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Untitled Tab 2">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

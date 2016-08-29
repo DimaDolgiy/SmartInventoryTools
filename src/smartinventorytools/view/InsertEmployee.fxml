@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartinventorytools.InsertController">
+   <children>
+      <Button defaultButton="true" layoutX="218.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnInsertEmp" prefHeight="25.0" prefWidth="82.0" style="-fx-background-radius: 30;" text="Добавить" />
+      <Button fx:id="btnCancel" cancelButton="true" layoutX="307.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 30;" text="Закрыть " />
+      <TextField fx:id="txtfirstName" layoutX="130.0" layoutY="90.0" prefHeight="33.0" prefWidth="211.0" />
+      <TextField fx:id="txtsecondName" layoutX="130.0" layoutY="142.0" prefHeight="33.0" prefWidth="211.0" />
+      <TextField fx:id="txtlastName" layoutX="130.0" layoutY="189.0" prefHeight="33.0" prefWidth="211.0" />
+      <TextField fx:id="txtjobPosition" layoutX="130.0" layoutY="236.0" prefHeight="33.0" prefWidth="211.0" />
+      <Label layoutX="19.0" layoutY="98.0" prefHeight="17.0" prefWidth="68.0" text="Имя" />
+      <Label layoutX="19.0" layoutY="150.0" prefHeight="17.0" prefWidth="68.0" text="Фамилия" />
+      <Label layoutX="19.0" layoutY="197.0" prefHeight="17.0" prefWidth="68.0" text="Отчество" />
+      <Label layoutX="19.0" layoutY="244.0" prefHeight="17.0" prefWidth="68.0" text="Должность" />
+      <Label layoutX="19.0" layoutY="295.0" prefHeight="17.0" prefWidth="96.0" text="Дата принятия" />
+      <Label layoutX="19.0" layoutY="344.0" prefHeight="17.0" prefWidth="96.0" text="Дата увольнения" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="99.0" layoutY="31.0" prefHeight="33.0" prefWidth="211.0" text="Добавить сотрудника">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dpStartDate" layoutX="131.0" layoutY="287.0" prefHeight="33.0" prefWidth="211.0" />
+      <DatePicker fx:id="dpFiredDate" layoutX="131.0" layoutY="336.0" prefHeight="33.0" prefWidth="211.0" />
+   </children>
+</AnchorPane>

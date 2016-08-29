@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="340.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartinventorytools.AuthorizationController">
+   <children>
+      <TextField fx:id="txtUserName" alignment="CENTER" layoutX="60.0" layoutY="166.0" prefHeight="34.0" prefWidth="222.0" promptText="username" style="-fx-background-radius: 30;" />
+      <PasswordField fx:id="txtPassword" alignment="CENTER" layoutX="60.0" layoutY="211.0" prefHeight="34.0" prefWidth="222.0" promptText="password" style="-fx-background-radius: 30;" />
+      <Button defaultButton="true" layoutX="60.0" layoutY="272.0" mnemonicParsing="false" onAction="#btnSignIn" prefHeight="34.0" prefWidth="222.0" style="-fx-background-color: orange; -fx-background-radius: 30;" styleClass="style" text="SIGN IN">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="107.0" layoutY="118.0" prefHeight="23.0" prefWidth="127.0" text="Members login" textAlignment="CENTER" textFill="#ff8800">
+         <font>
+            <Font name="Linux Libertine G Regular" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="58.0" layoutY="38.0" prefHeight="65.0" prefWidth="225.0" text="Smart Inventory Tools">
+         <font>
+            <Font name="Linux Libertine G Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="72.0" layoutY="141.0" text="Please enter your login and password" textFill="#c6c6c6" />
+      <Label fx:id="lblMessage" alignment="CENTER" layoutX="72.0" layoutY="336.0" prefHeight="17.0" prefWidth="198.0" textFill="#dd5500" />
+   </children>
+</Pane>

@@ -253,16 +253,6 @@ public class EmployeeController implements Initializable {
             ex.printStackTrace();
         }
 
-        // устанавливаем тип и значение которое должно хранится в колонке
-//          employeeIdColumn.setCellValueFactory(cellData -> cellData.getValue().user_idProperty().asObject());
-//          firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-//          secondNameColumn.setCellValueFactory(celldata -> celldata.getValue().secondNameProperty());
-//          lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-//          jobPositionColumn.setCellValueFactory(cellData -> cellData.getValue().jobPositionProperty());
-//          startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
-//          firedDateColumn.setCellValueFactory(cellData -> cellData.getValue().firedDateProperty());
-//        
-//          tableEmployee.setItems(employeeData);
 //        Слушаем изменения выбора и выводим в консоль результат 
         tableEmployee.getSelectionModel().selectedItemProperty().addListener((selectedValue) -> {
 

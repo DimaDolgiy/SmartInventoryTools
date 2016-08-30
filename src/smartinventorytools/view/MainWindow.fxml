@@ -38,8 +38,8 @@
                            <children>
                               <Button id="search-button" layoutX="281.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" stylesheets="@style.css" text="поиск" />
                               <Button layoutX="1041.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnAddEmployee" prefHeight="25.0" prefWidth="86.0" text="Добавить " />
-                              <Button id="delete-button" defaultButton="true" layoutX="860.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="25.0" prefWidth="83.0" stylesheets="@style.css" text="Удалить " />
-                              <TextField layoutX="13.0" layoutY="28.0" prefHeight="25.0" prefWidth="261.0" />
+                              <Button id="delete-button" layoutX="860.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="25.0" prefWidth="83.0" stylesheets="@style.css" text="Удалить " />
+                              <TextField fx:id="filterField" layoutX="13.0" layoutY="28.0" prefHeight="25.0" prefWidth="261.0" />
                               <Button layoutX="1136.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnEditEmp" prefHeight="25.0" prefWidth="109.0" text="Редактировать" />
                               <Button id="refresh-button" layoutX="953.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnRefreshTable" prefHeight="25.0" prefWidth="77.0" stylesheets="@style.css" text="обновить" />
                               <TableView fx:id="tableEmployee" layoutX="341.0" layoutY="83.0" maxWidth="-Infinity" prefHeight="601.0" prefWidth="951.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="83.0">

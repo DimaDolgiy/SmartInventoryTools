@@ -201,7 +201,7 @@ public class EmployeeController implements Initializable {
     }
 
 //    вызываем окно для редактирования пользователя с таблицы 
-    public void show(Employee employee) throws IOException {
+    public void showEmployeeEditDialog(Employee employee) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(EmployeeController.class.getResource("view/EmployeeEditDialog.fxml"));
@@ -232,7 +232,7 @@ public class EmployeeController implements Initializable {
 
         if (selectedEmployee != null) {
 
-            show(selectedEmployee);
+            showEmployeeEditDialog(selectedEmployee);
 
         } else {
             Alert alert = new Alert(AlertType.WARNING);

@@ -79,9 +79,11 @@ public class InsertController implements Initializable {
 
         actionClose(actionEvent);
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Employee inserted");
-        alert.setContentText("First Name: " + txtfirstName.getText() + "\n"
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success !!!");
+        alert.setHeaderText(null);
+        alert.setContentText("Employee inserted" + "\n"
+                + "First Name: " + txtfirstName.getText() + "\n"
                 + "Second Name: " + txtsecondName.getText());
         alert.showAndWait();
 

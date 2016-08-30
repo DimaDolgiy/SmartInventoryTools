@@ -42,7 +42,7 @@ import smartinventorytools.model.Employee;
 public class EmployeeController implements Initializable {
 
     private ObservableList<Employee> employeeData;
-    
+
     @FXML
     private TextField filterField;
 
@@ -74,7 +74,7 @@ public class EmployeeController implements Initializable {
     @FXML
     public void btnAddEmployee(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("view/InsertEmployee.fxml"));
         stage.setResizable(false);
         stage.setScene(new Scene(root));
@@ -147,7 +147,6 @@ public class EmployeeController implements Initializable {
     @FXML
     public void btnDelete() throws SQLException {
 
-        
         Employee selected = tableEmployee.getSelectionModel().getSelectedItem();
 
         if (selected != null) {
@@ -193,7 +192,7 @@ public class EmployeeController implements Initializable {
             }
 
         } else {
-            
+
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("No Selection");
             alert.setHeaderText("No Employee Selected !!!");
@@ -229,9 +228,10 @@ public class EmployeeController implements Initializable {
     }
 
     /**
-     * вызывается, когда пользователь кликает по кнопке Редактировать 
-     * открывает диалоговое окно для изменения выбраного адресата
-     * @throws IOException 
+     * вызывается, когда пользователь кликает по кнопке Редактировать открывает
+     * диалоговое окно для изменения выбраного адресата
+     *
+     * @throws IOException
      */
     @FXML
     public void btnEditEmp() throws IOException {
@@ -255,38 +255,54 @@ public class EmployeeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        try {
-            btnRefreshTable();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-        
-        
-        
+//        try {
+//            btnRefreshTable();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+        employeeIdColumn.setCellValueFactory(cellData -> cellData.getValue().user_idProperty().asObject());
+        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
+        secondNameColumn.setCellValueFactory(celldata -> celldata.getValue().secondNameProperty());
+        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
+        jobPositionColumn.setCellValueFactory(cellData -> cellData.getValue().jobPositionProperty());
+        startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
+        firedDateColumn.setCellValueFactory(cellData -> cellData.getValue().firedDateProperty());
+
+//            tableEmployee.setItems(employeeData);
+//        Обарачиваем ObservableList в FilteredList
         FilteredList<Employee> filteredData = new FilteredList<>(employeeData, e -> true);
         filterField.setOnKeyReleased(e -> {
-            filterField.textProperty().addListener((observable, oldValue,newValue) -> {
+
+//            Устанавливаем связуемый фильтр всякий раз, когда изменяется фильтр
+            filterField.textProperty().addListener((observable, oldValue, newValue) -> {
                 filteredData.setPredicate((Predicate<? super Employee>) employee -> {
-                    
+
+//                   Если текстовое поле фильтра пустое, отображаем всех сотрдников
                     if (newValue == null || newValue.isEmpty()) {
                         return true;
                     }
-                    
+
+//                  Сравниваем имя и фамилию каждого сотрудника с текстом в фильтре 
                     String lowerCaseFilter = newValue.toLowerCase();
-                    
+
                     if (employee.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
-                    }else if (employee.getSecondName().toLowerCase().contains(lowerCaseFilter)) {
+                    } else if (employee.getSecondName().toLowerCase().contains(lowerCaseFilter)) {
                         return true;
                     }
-                    
+
                     return false;
                 });
             });
-            
+
+//          Оборачиваем FilteredList в SortedList
             SortedList<Employee> sortedList = new SortedList<>(filteredData);
+
             sortedList.comparatorProperty().bind(tableEmployee.comparatorProperty());
+
+//           Добавляем отсортированых и отфилтрованые данные в таблицу 
             tableEmployee.setItems(sortedList);
+
         });
 
     }

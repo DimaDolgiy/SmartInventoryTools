@@ -224,7 +224,11 @@ public class EmployeeController implements Initializable {
 
     }
 
-//    TEST
+    /**
+     * вызывается, когда пользователь кликает по кнопке Редактировать 
+     * открывает диалоговое окно для изменения выбраного адресата
+     * @throws IOException 
+     */
     @FXML
     public void btnEditEmp() throws IOException {
 

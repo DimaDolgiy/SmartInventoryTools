@@ -11,6 +11,8 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -86,15 +88,17 @@ public class EmployeeController implements Initializable {
 
 //    обновляем таблицу 
     @FXML
-    public void btnRefreshTable() throws SQLException {
+    public void btnRefreshTable() {
 
         String className = "com.mysql.jdbc.Driver";
         String nameDataBase = "admin_inventory";
         String url = "jdbc:mysql://127.0.0.1:3306/";
         String name = "root";
         String password = "root";
-        Connection connection = null;
-        Statement statement = null;
+        Connection connection;
+        Statement statement;
+
+       
 
         try {
             Class.forName(className);
@@ -134,14 +138,8 @@ public class EmployeeController implements Initializable {
             e.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
         }
+
     }
 
     @FXML
@@ -255,34 +253,22 @@ public class EmployeeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-//        try {
-//            btnRefreshTable();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-        employeeIdColumn.setCellValueFactory(cellData -> cellData.getValue().user_idProperty().asObject());
-        firstNameColumn.setCellValueFactory(cellData -> cellData.getValue().firstNameProperty());
-        secondNameColumn.setCellValueFactory(celldata -> celldata.getValue().secondNameProperty());
-        lastNameColumn.setCellValueFactory(cellData -> cellData.getValue().lastNameProperty());
-        jobPositionColumn.setCellValueFactory(cellData -> cellData.getValue().jobPositionProperty());
-        startDateColumn.setCellValueFactory(cellData -> cellData.getValue().startDateProperty());
-        firedDateColumn.setCellValueFactory(cellData -> cellData.getValue().firedDateProperty());
+        btnRefreshTable();
 
-//            tableEmployee.setItems(employeeData);
 //        Обарачиваем ObservableList в FilteredList
         FilteredList<Employee> filteredData = new FilteredList<>(employeeData, e -> true);
         filterField.setOnKeyReleased(e -> {
 
 //            Устанавливаем связуемый фильтр всякий раз, когда изменяется фильтр
             filterField.textProperty().addListener((observable, oldValue, newValue) -> {
-                filteredData.setPredicate((Predicate<? super Employee>) employee -> {
+                filteredData.setPredicate(employee -> {
 
 //                   Если текстовое поле фильтра пустое, отображаем всех сотрдников
                     if (newValue == null || newValue.isEmpty()) {
                         return true;
                     }
 
-//                  Сравниваем имя и фамилию каждого сотрудника с текстом в фильтре 
+//                  Сравниваем имя и фамилию каждого сотрудника с текстом в фильтре
                     String lowerCaseFilter = newValue.toLowerCase();
 
                     if (employee.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
@@ -306,5 +292,7 @@ public class EmployeeController implements Initializable {
         });
 
     }
+
+    
 
 }

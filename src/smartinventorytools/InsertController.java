@@ -8,18 +8,22 @@ package smartinventorytools;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import smartinventorytools.model.Employee;
 
 
 
@@ -30,9 +34,9 @@ import javafx.stage.Stage;
  */
 public class InsertController implements Initializable{
     
+
     
-  @FXML
-    private TextArea resultAction;
+  
     
     
     
@@ -61,6 +65,7 @@ public class InsertController implements Initializable{
     @FXML
     public void btnInsertEmp(ActionEvent actionEvent) throws SQLException{
         
+       
         
         String className = "com.mysql.jdbc.Driver";
         String nameDataBase = "admin_inventory";
@@ -79,8 +84,9 @@ public class InsertController implements Initializable{
             String insertEmployee = "INSERT INTO employee (firstName, secondName, lastName, jobPosition, startDate, firedDate) VALUES  ('" + txtfirstName.getText() + "',"+
                     "'" + txtsecondName.getText() + "', '" + txtlastName.getText() + "', '" + txtjobPosition.getText() + "', '" + dpStartDate.getEditor().getText() + "', '" + dpFiredDate.getEditor().getText()  +"');";         
             statement.executeUpdate(insertEmployee);
-           
-                       
+            
+            
+                 
         }catch(ClassNotFoundException e){
             e.printStackTrace();
         }catch(SQLException e){
@@ -91,11 +97,14 @@ public class InsertController implements Initializable{
             }
             if(connection != null){
                 connection.close();
-                ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
+
+                actionClose(actionEvent);
+                
 
             }
            
         }
+        
         
     }
     
@@ -117,5 +126,4 @@ public class InsertController implements Initializable{
         
         
     }
-    
 }

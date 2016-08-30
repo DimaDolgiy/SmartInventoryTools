@@ -8,10 +8,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="391.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartinventorytools.InsertController">
+<AnchorPane id="AnchorPane" prefHeight="475.0" prefWidth="391.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="smartinventorytools.InsertController">
    <children>
-      <Button defaultButton="true" layoutX="218.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnInsertEmp" prefHeight="25.0" prefWidth="82.0" style="-fx-background-radius: 30;" text="Добавить" />
-      <Button fx:id="btnCancel" cancelButton="true" layoutX="307.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 30;" text="Закрыть " />
+      <Button defaultButton="true" layoutX="218.0" layoutY="423.0" mnemonicParsing="false" onAction="#btnInsertEmp" prefHeight="25.0" prefWidth="82.0" style="-fx-background-radius: 30; -fx-background-color: orange;" text="Добавить" />
+      <Button fx:id="btnCancel" cancelButton="true" layoutX="307.0" layoutY="423.0" mnemonicParsing="false" onAction="#actionClose" prefHeight="25.0" prefWidth="68.0" style="-fx-background-radius: 30; -fx-background-color: orange;" text="Закрыть " />
       <TextField fx:id="txtfirstName" layoutX="130.0" layoutY="90.0" prefHeight="33.0" prefWidth="211.0" />
       <TextField fx:id="txtsecondName" layoutX="130.0" layoutY="142.0" prefHeight="33.0" prefWidth="211.0" />
       <TextField fx:id="txtlastName" layoutX="130.0" layoutY="189.0" prefHeight="33.0" prefWidth="211.0" />

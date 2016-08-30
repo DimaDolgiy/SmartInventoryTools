@@ -11,7 +11,7 @@
    <children>
       <VBox layoutX="107.0" layoutY="136.0" prefHeight="900.0" prefWidth="1900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <MenuBar prefHeight="40.0" prefWidth="1638.0">
+            <MenuBar prefHeight="48.0" prefWidth="1360.0">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -36,12 +36,12 @@
                   <content>
                     <AnchorPane>
                            <children>
-                              <Button layoutX="210.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Поиск" />
-                              <Button layoutX="404.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnAddEmployee" prefHeight="25.0" prefWidth="86.0" text="Добавить " />
-                              <Button layoutX="498.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="25.0" prefWidth="86.0" text="Удалить" />
-                              <TextField layoutX="13.0" layoutY="28.0" prefHeight="25.0" prefWidth="185.0" />
-                              <Button layoutX="592.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnEditEmp" prefHeight="25.0" prefWidth="109.0" text="Редактировать" />
-                              <Button layoutX="326.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnRefreshTable" prefHeight="25.0" prefWidth="71.0" text="Обновить" />
+                              <Button layoutX="282.0" layoutY="28.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Поиск" />
+                              <Button layoutX="1041.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnAddEmployee" prefHeight="25.0" prefWidth="86.0" text="Добавить " />
+                              <Button layoutX="1254.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnDelete" prefHeight="25.0" prefWidth="86.0" text="Удалить" />
+                              <TextField layoutX="13.0" layoutY="28.0" prefHeight="25.0" prefWidth="261.0" />
+                              <Button layoutX="1136.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnEditEmp" prefHeight="25.0" prefWidth="109.0" text="Редактировать" />
+                              <Button layoutX="959.0" layoutY="28.0" mnemonicParsing="false" onAction="#btnRefreshTable" prefHeight="25.0" prefWidth="71.0" text="Обновить" />
                               <TableView fx:id="tableEmployee" layoutX="341.0" layoutY="83.0" maxWidth="-Infinity" prefHeight="601.0" prefWidth="951.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="83.0">
                                 <columns>
                                   <TableColumn fx:id="employeeIdColumn" prefWidth="119.0" text="employee_id" />

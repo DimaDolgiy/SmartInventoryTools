@@ -10,13 +10,12 @@ import java.net.URL;
 
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
+import java.util.function.Predicate;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,6 +29,7 @@ import javafx.scene.control.Alert.AlertType;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -42,6 +42,9 @@ import smartinventorytools.model.Employee;
 public class EmployeeController implements Initializable {
 
     private ObservableList<Employee> employeeData;
+    
+    @FXML
+    private TextField filterField;
 
     @FXML
     private TableView<Employee> tableEmployee;
@@ -71,6 +74,7 @@ public class EmployeeController implements Initializable {
     @FXML
     public void btnAddEmployee(ActionEvent actionEvent) throws IOException {
         Stage stage = new Stage();
+        
         Parent root = FXMLLoader.load(getClass().getResource("view/InsertEmployee.fxml"));
         stage.setResizable(false);
         stage.setScene(new Scene(root));
@@ -189,7 +193,7 @@ public class EmployeeController implements Initializable {
             }
 
         } else {
-
+            
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("No Selection");
             alert.setHeaderText("No Employee Selected !!!");
@@ -256,12 +260,33 @@ public class EmployeeController implements Initializable {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-//        Слушаем изменения выбора и выводим в консоль результат 
-        tableEmployee.getSelectionModel().selectedItemProperty().addListener((selectedValue) -> {
-
-            System.out.println("select " + selectedValue.toString());
-
+        
+        
+        
+        FilteredList<Employee> filteredData = new FilteredList<>(employeeData, e -> true);
+        filterField.setOnKeyReleased(e -> {
+            filterField.textProperty().addListener((observable, oldValue,newValue) -> {
+                filteredData.setPredicate((Predicate<? super Employee>) employee -> {
+                    
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+                    
+                    String lowerCaseFilter = newValue.toLowerCase();
+                    
+                    if (employee.getFirstName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }else if (employee.getSecondName().toLowerCase().contains(lowerCaseFilter)) {
+                        return true;
+                    }
+                    
+                    return false;
+                });
+            });
+            
+            SortedList<Employee> sortedList = new SortedList<>(filteredData);
+            sortedList.comparatorProperty().bind(tableEmployee.comparatorProperty());
+            tableEmployee.setItems(sortedList);
         });
 
     }

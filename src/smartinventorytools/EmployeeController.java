@@ -10,9 +10,6 @@ import java.net.URL;
 
 import java.sql.*;
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,6 +39,12 @@ import smartinventorytools.model.Employee;
  * @author Dima
  */
 public class EmployeeController implements Initializable {
+
+   
+    
+    
+    
+    
 
     private ObservableList<Employee> employeeData;
 
@@ -98,7 +101,7 @@ public class EmployeeController implements Initializable {
         Connection connection;
         Statement statement;
 
-       
+      
 
         try {
             Class.forName(className);
@@ -255,7 +258,9 @@ public class EmployeeController implements Initializable {
 
         btnRefreshTable();
 
-//        Обарачиваем ObservableList в FilteredList
+
+
+//        Обворачиваем ObservableList в FilteredList
         FilteredList<Employee> filteredData = new FilteredList<>(employeeData, e -> true);
         filterField.setOnKeyReleased(e -> {
 
@@ -281,7 +286,7 @@ public class EmployeeController implements Initializable {
                 });
             });
 
-//          Оборачиваем FilteredList в SortedList
+//          Обворачиваем FilteredList в SortedList
             SortedList<Employee> sortedList = new SortedList<>(filteredData);
 
             sortedList.comparatorProperty().bind(tableEmployee.comparatorProperty());
